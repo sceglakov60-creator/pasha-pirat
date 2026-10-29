@@ -23,7 +23,7 @@
       <a href="#catalog" data-nav="Римские свечи">Римские свечи</a>
       <a href="#services">Услуги</a>
     </nav>
-    <a class="contact-top" href="https://t.me/Pasha_piro" target="_blank" rel="noreferrer"><span class="online-dot"></span> Написать нам <span aria-hidden="true">↗</span></a>
+    <button class="contact-top contact-trigger" type="button"><span class="online-dot"></span> Написать нам <span aria-hidden="true">↗</span></button>
     <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
   </header>
 
@@ -35,7 +35,7 @@
         <p>Пиротехника для праздников, встреч и больших поводов. Выберите эффект — мы подскажем, что подойдёт.</p>
         <div class="hero-actions">
           <a href="#catalog" class="button button-primary">Выбрать товары <span>↓</span></a>
-          <a href="https://t.me/Pasha_piro" target="_blank" rel="noreferrer" class="button button-quiet">Задать вопрос <span>↗</span></a>
+          <button type="button" class="button button-quiet contact-trigger">Задать вопрос <span>↗</span></button>
         </div>
         <div class="hero-note"><span class="note-icon">i</span><span>Продажа с учётом возрастных ограничений и правил обращения с пиротехникой.</span></div>
       </div>
@@ -98,6 +98,28 @@
 
     <section class="safety" id="safety"><div class="safety-symbol">!</div><div><div class="safety-title">Безопасность — часть праздника</div><p>Продажа с учётом возрастных ограничений, указанных производителем и действующих требований закона. Используйте изделия строго по инструкции производителя и учитывайте класс опасности.</p></div><a href="https://www.consultant.ru/document/cons_doc_LAW_363263/a330a1ea087f4ce635dac603e2a883d43baa447f/" target="_blank" rel="noreferrer">Правила безопасности ↗</a></section>
   </main>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="contact-dialog-head">
+      <div><div class="eyebrow"><span class="eyebrow-line"></span> ПАША ПИРАТ</div><h2 id="contact-title">Выберите контакт<span class="blue-dot">.</span></h2></div>
+      <button class="dialog-close" type="button" aria-label="Закрыть меню">×</button>
+    </div>
+    <p class="contact-context" id="contact-context">Напишите нам удобным способом — ответим на вопросы и подскажем по наличию.</p>
+    <div class="contact-options">
+      <div class="contact-option max-option">
+        <span class="messenger-icon">М</span><div class="contact-option-copy"><strong>MAX</strong><small>+7 960 983-69-58</small></div>
+        <button type="button" class="copy-contact" data-copy="+79609836958">Скопировать номер</button>
+        <a class="option-arrow" href="https://max.ru/" target="_blank" rel="noreferrer" aria-label="Открыть MAX">↗</a>
+      </div>
+      <a class="contact-option" href="https://t.me/Pasha_piro" target="_blank" rel="noreferrer">
+        <span class="messenger-icon telegram-icon">➤</span><div class="contact-option-copy"><strong>Telegram</strong><small>@Pasha_piro</small></div><span class="option-arrow">↗</span>
+      </a>
+      <a class="contact-option" id="whatsapp-contact" href="https://wa.me/639451103391" target="_blank" rel="noreferrer">
+        <span class="messenger-icon whatsapp-icon">◉</span><div class="contact-option-copy"><strong>WhatsApp</strong><small>+63 945 110 3391</small></div><span class="option-arrow">↗</span>
+      </a>
+    </div>
+    <div class="copy-feedback" id="copy-feedback" aria-live="polite"></div>
+  </dialog>
 
   <footer class="footer">
     <a class="brand footer-brand" href="#home"><span class="brand-mark">П<span>✦</span></span><span class="brand-name">ПАША <b>ПИРАТ</b><small>пиротехника и впечатления</small></span></a>
