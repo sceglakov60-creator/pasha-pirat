@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <meta name="description" content="Паша Пират — салюты, петарды, римские свечи и услуги доставки. Каталог и заказ через мессенджер.">
+  <title>Паша Пират — пиротехника для ярких событий</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Паша Пират — на главную">
+      <span class="brand-mark" aria-hidden="true">П<span>✦</span></span>
+      <span class="brand-name">ПАША <b>ПИРАТ</b><small>пиротехника и впечатления</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Основное меню">
+      <a href="#catalog" data-nav="Салюты">Салюты</a>
+      <a href="#catalog" data-nav="Петарды">Петарды</a>
+      <a href="#catalog" data-nav="Римские свечи">Римские свечи</a>
+      <a href="#services">Услуги</a>
+    </nav>
+    <a class="contact-top" href="https://t.me/Pasha_piro" target="_blank" rel="noreferrer"><span class="online-dot"></span> Написать нам <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> МОМЕНТЫ, КОТОРЫЕ ЗАПОМИНАЮТСЯ</div>
+        <h1>Пусть будет<br>по-настоящему <em>ярко.</em></h1>
+        <p>Пиротехника для праздников, встреч и больших поводов. Выберите эффект — мы подскажем, что подойдёт.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="button button-primary">Выбрать товары <span>↓</span></a>
+          <a href="https://t.me/Pasha_piro" target="_blank" rel="noreferrer" class="button button-quiet">Задать вопрос <span>↗</span></a>
+        </div>
+        <div class="hero-note"><span class="note-icon">i</span><span>Продажа с учётом возрастных ограничений и правил обращения с пиротехникой.</span></div>
+      </div>
+      <div class="hero-art" aria-label="Декоративная иллюстрация салюта">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="burst burst-large"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><span></span></div>
+        <div class="burst burst-small"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><span></span></div>
+        <div class="burst burst-tiny"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><span></span></div>
+        <span class="spark spark-a">✦</span><span class="spark spark-b">✧</span><span class="spark spark-c">✦</span><span class="spark spark-d">✧</span>
+        <div class="art-caption"><span>01 / 03</span><i></i><span>ВЕЧЕР, КОТОРЫЙ ВАШ</span></div>
+      </div>
+      <div class="hero-bottom"><span>ОМСК · СОСНОВСКОЕ</span><span>ПОДБЕРЁМ ПИРОТЕХНИКУ ПОД ВАШ ПОВОД <b>↓</b></span></div>
+    </section>
+
+    <section class="category-strip" aria-label="Категории каталога">
+      <a href="#catalog" data-category="Салюты"><span class="cat-num">01</span><span class="cat-label">Салюты</span><span class="cat-arrow">↗</span></a>
+      <a href="#catalog" data-category="Петарды"><span class="cat-num">02</span><span class="cat-label">Петарды</span><span class="cat-arrow">↗</span></a>
+      <a href="#catalog" data-category="Римские свечи"><span class="cat-num">03</span><span class="cat-label">Римские свечи</span><span class="cat-arrow">↗</span></a>
+      <a href="#services"><span class="cat-num">04</span><span class="cat-label">Услуги</span><span class="cat-arrow">↗</span></a>
+    </section>
+
+    <section class="section hot-section" id="hot">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> ВЫБОР ПОКУПАТЕЛЕЙ</div><h2>Горячие товары<span class="blue-dot">.</span></h2></div>
+        <a class="text-link" href="#catalog">Весь каталог <span>↗</span></a>
+      </div>
+      <div class="product-grid" id="hot-grid"></div>
+    </section>
+
+    <section class="catalog-section" id="catalog">
+      <div class="section-heading catalog-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> КАТАЛОГ</div><h2>Найдите свой эффект<span class="blue-dot">.</span></h2></div>
+        <p class="catalog-intro">Цены и характеристики указаны по актуальному списку магазина. Если сомневаетесь с выбором — напишите нам.</p>
+      </div>
+      <div class="catalog-controls">
+        <div class="tabs" role="tablist" aria-label="Категории товаров">
+          <button class="tab active" data-tab="Все товары">Все товары <span id="all-count"></span></button>
+          <button class="tab" data-tab="Салюты">Салюты</button>
+          <button class="tab" data-tab="Петарды">Петарды</button>
+          <button class="tab" data-tab="Римские свечи">Римские свечи</button>
+        </div>
+        <label class="sort-label">Сортировка
+          <select id="sort">
+            <option value="popular">Популярные</option>
+            <option value="price-asc">Цена: по возрастанию</option>
+            <option value="price-desc">Цена: по убыванию</option>
+            <option value="power-asc">Мощность: по возрастанию</option>
+            <option value="power-desc">Мощность: по убыванию</option>
+          </select>
+        </label>
+      </div>
+      <div class="catalog-meta"><span id="result-count"></span><span>Мощность указана числом залпов, если она есть в прайсе</span></div>
+      <div class="product-grid catalog-grid" id="catalog-grid"></div>
+    </section>
+
+    <section class="services-section" id="services">
+      <div class="services-copy"><div class="eyebrow"><span class="eyebrow-line"></span> ПОМОЖЕМ С ПОЛУЧЕНИЕМ</div><h2>Праздник начинается<br>с простого плана<span class="blue-dot">.</span></h2><p>Уточните наличие, задайте вопрос по товару или договоритесь о доставке — ответим в удобном мессенджере.</p><a href="https://t.me/Pasha_piro" class="button button-light" target="_blank" rel="noreferrer">Связаться с нами <span>↗</span></a></div>
+      <div class="service-list" id="service-list"></div>
+    </section>
+
+    <section class="safety" id="safety"><div class="safety-symbol">!</div><div><div class="safety-title">Безопасность — часть праздника</div><p>Продажа с учётом возрастных ограничений, указанных производителем и действующих требований закона. Используйте изделия строго по инструкции производителя и учитывайте класс опасности.</p></div><a href="https://www.consultant.ru/document/cons_doc_LAW_363263/a330a1ea087f4ce635dac603e2a883d43baa447f/" target="_blank" rel="noreferrer">Правила безопасности ↗</a></section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">П<span>✦</span></span><span class="brand-name">ПАША <b>ПИРАТ</b><small>пиротехника и впечатления</small></span></a>
+    <div class="footer-contacts"><a href="tel:+79609836958">MAX · +7 960 983-69-58</a><a href="https://t.me/Pasha_piro" target="_blank" rel="noreferrer">Telegram · @Pasha_piro</a><a href="https://wa.me/639451103391" target="_blank" rel="noreferrer">WhatsApp · +63 945 110 3391</a></div>
+    <div class="footer-copy">© <span id="year"></span> Паша Пират<br>Каталог носит информационный характер.</div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
