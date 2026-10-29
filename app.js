@@ -2,11 +2,6 @@ const state = { products: [], hot: [], category: 'Все товары', sort: 'p
 const fallbackImage = 'photo-unavailable.png';
 const money = value => `${new Intl.NumberFormat('ru-RU').format(value)} ₽`;
 
-function orderUrl(product) {
-  const text = `Здравствуйте! Интересует товар: ${product.name}${product.code ? ` (${product.code})` : ''} — ${money(product.price)}.`;
-  return `https://wa.me/639451103391?text=${encodeURIComponent(text)}`;
-}
-
 function productCard(product, hot = false) {
   const specs = [];
   if (product.power) specs.push(`${product.power} залпов`);
@@ -19,7 +14,7 @@ function productCard(product, hot = false) {
       <h3 class="product-title">${product.name}</h3>
       ${product.code ? `<div class="product-code">Арт. ${product.code}</div>` : ''}
       <div class="product-specs">${specs.map(spec => `<span class="spec-pill">${spec}</span>`).join('') || '<span>Характеристики уточняйте</span>'}</div>
-      <div class="product-bottom"><span class="product-price">${money(product.price)}</span><a class="order-link" href="${orderUrl(product)}" target="_blank" rel="noreferrer">Заказать <span>↗</span></a></div>
+      <div class="product-bottom"><span class="product-price">${money(product.price)}</span><button class="order-link contact-trigger" type="button" data-product-id="${product.id}">Заказать <span>↗</span></button></div>
     </div>
   </article>`;
 }
@@ -89,6 +84,46 @@ document.querySelectorAll('.main-nav a').forEach(link => link.addEventListener('
   document.querySelector('.main-nav').classList.remove('open');
   menuToggle.setAttribute('aria-expanded', 'false');
 }));
+
+const contactDialog = document.querySelector('#contact-dialog');
+const contactTitle = document.querySelector('#contact-title');
+const contactContext = document.querySelector('#contact-context');
+const whatsappContact = document.querySelector('#whatsapp-contact');
+const copyFeedback = document.querySelector('#copy-feedback');
+function openContactMenu(product = null) {
+  contactTitle.innerHTML = product ? 'Заказать товар<span class="blue-dot">.</span>' : 'Выберите контакт<span class="blue-dot">.</span>';
+  contactContext.textContent = product
+    ? `${product.name}${product.code ? ` · арт. ${product.code}` : ''} — ${money(product.price)}. Выберите мессенджер для заказа.`
+    : 'Напишите нам удобным способом — ответим на вопросы и подскажем по наличию.';
+  const message = product
+    ? `Здравствуйте! Хочу заказать товар: ${product.name}${product.code ? ` (${product.code})` : ''} — ${money(product.price)}.`
+    : 'Здравствуйте! Подскажите, пожалуйста.';
+  whatsappContact.href = `https://wa.me/639451103391?text=${encodeURIComponent(message)}`;
+  copyFeedback.textContent = '';
+  if (!contactDialog.open) contactDialog.showModal();
+}
+
+document.addEventListener('click', event => {
+  const trigger = event.target.closest('.contact-trigger');
+  if (!trigger) return;
+  const product = trigger.dataset.productId
+    ? state.products.find(item => item.id === trigger.dataset.productId)
+    : null;
+  openContactMenu(product);
+});
+document.querySelector('.dialog-close').addEventListener('click', () => contactDialog.close());
+contactDialog.addEventListener('click', event => {
+  if (event.target === contactDialog) contactDialog.close();
+});
+document.querySelector('.copy-contact').addEventListener('click', async event => {
+  const number = event.currentTarget.dataset.copy;
+  try {
+    await navigator.clipboard.writeText(number);
+    copyFeedback.textContent = 'Номер MAX скопирован';
+  } catch {
+    copyFeedback.textContent = `Номер MAX: ${number}`;
+  }
+});
 document.querySelector('#year').textContent = new Date().getFullYear();
 
 fetch('products.json').then(response => {
